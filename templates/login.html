@@ -1,0 +1,34 @@
+ 
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block body %}
+
+
+    <h1 class='text-center mt-2'>Login</h1>
+
+    {% include 'alerts.html' %}
+     <!--Login-->
+        <div class="container w-25">
+            <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputUserName1">User Name</label>
+                    <input type="text" class="form-control" id="exampleInputUserName1" aria-describedby="UserNameHelp" name='username' required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name='password' required>
+                </div>
+                <button type="submit" class="btn btn-primary" required>Login</button>
+                <small>Not yet registered? <a href="{% url 'register' %}">Register</a></small>
+            </form>
+        </div>
+
+
+
+{% endblock body %}
